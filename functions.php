@@ -1,6 +1,6 @@
 
-<?php 
-
+<?php
+require_once ('functions/products.php');
 add_action('init', 'create_partner');
        function create_partner() {
          $feature_args = array(
@@ -32,7 +32,7 @@ add_action('init', 'create_partner');
        );
     register_post_type('partner',$feature_args);
    }
-   
+
           function create_legal() {
          $feature_args = array(
             'labels' => array(
@@ -65,40 +65,14 @@ add_action('init', 'create_partner');
    }
 
    add_action('init', 'create_legal');
-   function create_legal_taxonomies() {
-    $labels = array(
-        'name'              => _x( 'Categories', 'taxonomy general name' ),
-        'singular_name'     => _x( 'Category', 'taxonomy singular name' ),
-        'search_items'      => __( 'Search Categories' ),
-        'all_items'         => __( 'All Categories' ),
-        'parent_item'       => __( 'Parent Category' ),
-        'parent_item_colon' => __( 'Parent Category:' ),
-        'edit_item'         => __( 'Edit Category' ),
-        'update_item'       => __( 'Update Category' ),
-        'add_new_item'      => __( 'Add New Category' ),
-        'new_item_name'     => __( 'New Category Name' ),
-        'menu_name'         => __( 'Categories' ),
-    );
-
-    $args = array(
-        'hierarchical'      => true, // Set this to 'false' for non-hierarchical taxonomy (like tags)
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array( 'slug' => 'categories' ),
-    );
-
-    register_taxonomy( 'legal_categories', array( 'legal' ), $args );
-}
-add_action( 'init', 'create_legal_taxonomies', 0 );
 
 
 
 
 
 
-add_theme_support( 'post-thumbnails' ); 
+
+add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
   register_nav_menus(
     array(
@@ -120,7 +94,7 @@ function special_nav_class($classes, $item){
              $classes[] = 'active ';
      }
      return $classes;
-} 
+}
 
 
 ?>

@@ -64,10 +64,10 @@
 			</div>
 			<?php endwhile; ?>
 			<?php endif; ?>
-			
+
 		</div>
 	</div>
-	<div class="col-md-3 banner"><img src="images/corsia.jpg" alt=""></div>
+	<div class="col-md-3 banner"><img src="<?php echo get_template_directory_uri(); ?>/images/corsia.jpg" alt=""></div>
 </div>
 <!-- legal -->
 <div id="legal" class="legal-bg">
@@ -134,7 +134,7 @@
 				$args = array( 'post_type' => 'partner', 'posts_per_page' => 100,  'order' => 'ASC' );
 				$loop = new WP_Query( $args );
 				while ( $loop->have_posts() ) : $loop->the_post(); global $product;
-				?>				
+				?>
 				<?php
 				$thumb_id = get_post_thumbnail_id();
 				$thumb_url = wp_get_attachment_image_src($thumb_id,'full', true);
@@ -142,8 +142,8 @@
 				<div class="swiper-slide">
 					<a href="http://<?php the_title(); ?>/" target="_blank"><img src="<?php echo $thumb_url[0] ?>" alt="" /></a>
 				</div>
-				<?php 
-				$all = get_field('orgaznization'); 
+				<?php
+				$all = get_field('orgaznization');
 				$pieces = explode(" ", $all);
 				echo $pieces[0];
 				echo $pieces[1];

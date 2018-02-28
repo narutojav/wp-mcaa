@@ -17,7 +17,7 @@
     <div class="row top">
       <div class="container">
         <div class="col-md-4 logo">
-          <img src="images/logo2.png" alt="" />
+          <img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" />
         </div>
         <div class="col-md-8 navmain" style="float:right;">
           <ul class="top-menu">
@@ -28,7 +28,7 @@
                 <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/gb.ico" alt=""></a>
               </div>
               <div class="input-group">
-             
+
                 <input id="email" type="text" class="form-control" name="email" placeholder="Хайх">
                 <span class="input-group-addon"><a href=""><i class="glyphicon glyphicon-search"></i></a></span>
               </div>
@@ -46,7 +46,7 @@
 
           </ul>
           <ul class="bottom-menu">
-            <?php wp_nav_menu( array( 'theme_location' => 'primary','container' => false, 'items_wrap'  => '%3$s', 'walker' => new My_Walker_Nav_Menu() ) ); ?> 
+            <?php wp_nav_menu( array( 'theme_location' => 'primary','container' => false, 'items_wrap'  => '%3$s', 'walker' => new My_Walker_Nav_Menu() ) ); ?>
           </ul>
         </div>
         <a id="collapse-btn"><i class="fa fa-bars"></i></a>
