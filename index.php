@@ -11,8 +11,8 @@
 			$thumb_id = get_post_thumbnail_id();
 			$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', false);
 			$excerpt = strip_tags($post->post_content);
-						if (strlen($excerpt) > 400) {
-						$excerpt = substr($excerpt, 0, 400);
+						if (strlen($excerpt) > 200) {
+						$excerpt = substr($excerpt, 0, 200);
 						$excerpt = substr($excerpt, 0, strrpos($excerpt, ' '));
 						$excerpt .= '...';
 						}

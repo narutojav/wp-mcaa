@@ -11,6 +11,7 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
+
   <div class="overplay"></div>
   <div id="header">
 
@@ -19,7 +20,7 @@
         <div class="col-md-4 logo">
           <img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" />
         </div>
-        <div class="col-md-8 navmain" style="float:right;">
+        <div class="col-md-8  navmain" style="float:right;">
           <ul class="top-menu">
             <div class="search">
 

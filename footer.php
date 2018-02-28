@@ -43,6 +43,7 @@
           </li>
         </div>
       </div>
+      <a href="#" id="back-to-top" title="Back to top">&uarr;</a>
       <div class="copyright">
         <p>© 2015 ИРГЭНИЙ НИСЭХИЙН ЕРӨНХИЙ ГАЗАР - THE CIVIL AVIATION AUTHORITY OF MONGOLIA</p>
       </div>

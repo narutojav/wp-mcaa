@@ -49,9 +49,7 @@ add_action('init', 'create_partner');
              'not_found_in_trash' => __( 'No legal found in trash' )
 
            ),
-
          'public' => true,
-
          'show_ui' => true,
          'capability_type' => 'post',
          'hierarchical' => false,
@@ -65,13 +63,6 @@ add_action('init', 'create_partner');
    }
 
    add_action('init', 'create_legal');
-
-
-
-
-
-
-
 add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
   register_nav_menus(
@@ -96,5 +87,85 @@ function special_nav_class($classes, $item){
      return $classes;
 }
 
+add_action("admin_menu", "setup_theme_admin_menus");
+function setup_theme_admin_menus() {
+  add_menu_page('Theme settings', 'Example theme', 'manage_options',
+       'tut_theme_settings', 'theme_settings_page');
 
+   add_submenu_page('tut_theme_settings',
+       'Front Page Elements', 'Front Page', 'manage_options',
+       'front-page-elements', 'theme_front_page_settings');
+}
+function theme_settings_page() {
+
+}
+function theme_front_page_settings() {
 ?>
+<script type="text/javascript">
+    var elementCounter = 0;
+    jQuery(document).ready(function() {
+        jQuery("#add-featured-post").click(function() {
+            var elementRow = jQuery("#front-page-element-placeholder").clone();
+            var newId = "front-page-element-" + elementCounter;
+
+            elementRow.attr("id", newId);
+            elementRow.show();
+
+            var inputField = jQuery("select", elementRow);
+            inputField.attr("name", "element-page-id-" + elementCounter);
+
+            var labelField = jQuery("label", elementRow);
+            labelField.attr("for", "element-page-id-" + elementCounter);
+
+            elementCounter++;
+            jQuery("input[name=element-max-id]").val(elementCounter);
+
+            jQuery("#featured-posts-list").append(elementRow);
+
+            return false;
+        });
+    });
+</script>
+<div class="wrap">
+    <?php screen_icon('themes'); ?> <h2>Front page elements</h2>
+
+    <form method="POST" action="">
+        <table class="form-table">
+            <tr valign="top">
+                <th scope="row">
+                    <label for="num_elements">
+                        Number of elements on a row:
+                    </label>
+                </th>
+                <td>
+                    <input type="text" name="num_elements" size="25" />
+                </td>
+            </tr>
+        </table>
+
+        <h3>Featured posts</h3>
+
+        <ul id="featured-posts-list">
+        </ul>
+
+        <input type="hidden" name="element-max-id" />
+
+        <a href="#" id="add-featured-post">Add featured post</a>
+    </form>
+
+    <li class="front-page-element" id="front-page-element-placeholder"
+        style="display:none;">
+        <label for="element-page-id">Featured post:</label>
+        <select name="element-page-id">
+            <?php foreach ($posts as $post) : ?>
+                <option value="<?php echo $post->ID; ?>">
+                    <?php echo $post->post_title; ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <a href="#">Remove</a>
+    </li>
+
+</div>
+<?php
+}

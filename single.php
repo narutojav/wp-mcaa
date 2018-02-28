@@ -57,13 +57,15 @@
 			<div class="col-md-9">
 				<article class="main-article">
 					<div class="singleContentBlock">
-						
+
 						<?php the_content(); ?>
-			<div style="text-align: right; display: block;padding-right: 30px">
-				<span id="lastModifiedDate" style="display:inline-block;font-style:italic;     margin-bottom: 20px;"><?php the_date(); ?></span>
+						<div style="text-align: right; display: block;padding-right: 30px">
+							<span id="lastModifiedDate" style="display:inline-block;font-style:italic;     margin-bottom: 20px;"><?php the_date(); ?></span>
+						</div>
+
+					</div>
+				</article>
 			</div>
-		</article>
-	</div>
 </div>
 </div>
 </div>
