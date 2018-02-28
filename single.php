@@ -54,20 +54,18 @@
 					<h4>latest news</h4>
 				</div>
 			</div>
-			<div class="col-md-9">
-				<article class="main-article">
-					<div class="singleContentBlock">
-
-						<?php the_content(); ?>
-						<div style="text-align: right; display: block;padding-right: 30px">
-							<span id="lastModifiedDate" style="display:inline-block;font-style:italic;     margin-bottom: 20px;"><?php the_date(); ?></span>
+				<div class="col-md-9">
+					<article class="main-article">
+						<div class="singleContentBlock">
+							<?php the_content(); ?>
+							<div style="text-align: right; display: block;padding-right: 30px">
+								<span id="lastModifiedDate" style="display:inline-block;font-style:italic;     margin-bottom: 20px;"><?php the_date(); ?></span>
+							</div>
 						</div>
-
-					</div>
-				</article>
+					</article>
+				</div>
 			</div>
-</div>
-</div>
+		</div>
 </div>
 <?php endwhile; ?>
 <?php get_footer(); ?>
