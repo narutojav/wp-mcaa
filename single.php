@@ -5,11 +5,14 @@
 	$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', false);
 ?>
 <div id="cover-img" style="background-image:url(<?php echo $thumb_url[0];   ?>)">
-	<!-- <div class="gradient"></div> -->
 	<div class="container">
 		<h3><?php the_title(); ?></h3>
 	</div>
 </div>
+<?php echo wp_get_attachment_image(get_post_meta( $post_id, 'second_featured_image', true),'thumbnail');
+echo "string";
+
+ ?>
 <div id="content">
 	<div class="container">
 		<div class="row">

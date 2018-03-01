@@ -79,6 +79,7 @@ a:hover {
   border-left: 1px solid;
   padding-right: 10px;
   font-weight: 100;
+  cursor: pointer;
 }
 
 #header .top-menu li:last-child a {
@@ -133,7 +134,7 @@ a:hover {
 }
 
 #header .search input {
-  height: 25px;
+  height: 26px;
   border: none;
   background: #efefef;
 }
@@ -461,12 +462,18 @@ a:hover {
 
 #footer ul li {
   color: white;
+  float: inherit;
+  list-style: none;
   text-transform: capitalize;
   list-style: initial;
 }
 
+#footer li ul{
+  padding-left: 0;
+}
 #footer li {
   list-style: none;
+    float: left;
   text-transform: uppercase;
 }
 

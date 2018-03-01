@@ -1,6 +1,6 @@
 
 <?php
-require_once ('functions/products.php');
+require_once ('inc/myfunction.php');
 add_action('init', 'create_partner');
        function create_partner() {
          $feature_args = array(
@@ -16,11 +16,8 @@ add_action('init', 'create_partner');
              'search_items' => __( 'Search partner' ),
              'not_found' => __( 'No partner found' ),
              'not_found_in_trash' => __( 'No partner found in trash' )
-
            ),
-
          'public' => true,
-
          'show_ui' => true,
          'capability_type' => 'post',
          'hierarchical' => false,
@@ -28,16 +25,13 @@ add_action('init', 'create_partner');
          'menu_icon' => 'dashicons-image-filter',
          'menu_position' => 15,
          'supports' => array( 'title', 'thumbnail',  'link' ),
-
        );
     register_post_type('partner',$feature_args);
    }
-
-          function create_legal() {
+   function create_legal() {
          $feature_args = array(
             'labels' => array(
              'name' => __( 'legal' ),
-
              'singular_name' => __( 'legal' ),
              'add_new' => __( 'Add New legal' ),
              'add_new_item' => __( 'Add New legal' ),
@@ -47,7 +41,6 @@ add_action('init', 'create_partner');
              'search_items' => __( 'Search legal' ),
              'not_found' => __( 'No legal found' ),
              'not_found_in_trash' => __( 'No legal found in trash' )
-
            ),
          'public' => true,
          'show_ui' => true,
@@ -57,12 +50,10 @@ add_action('init', 'create_partner');
          'menu_icon' => 'dashicons-media-document',
          'menu_position' => 15,
          'supports' => array( 'title', 'editor','custom-fields', 'thumbnail',  'link' ),
-
        );
     register_post_type('legal',$feature_args);
    }
-
-   add_action('init', 'create_legal');
+add_action('init', 'create_legal');
 add_theme_support( 'post-thumbnails' );
 function register_my_menus() {
   register_nav_menus(
@@ -91,7 +82,6 @@ add_action("admin_menu", "setup_theme_admin_menus");
 function setup_theme_admin_menus() {
   add_menu_page('Theme settings', 'Example theme', 'manage_options',
        'tut_theme_settings', 'theme_settings_page');
-
    add_submenu_page('tut_theme_settings',
        'Front Page Elements', 'Front Page', 'manage_options',
        'front-page-elements', 'theme_front_page_settings');

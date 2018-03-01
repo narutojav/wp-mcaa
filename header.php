@@ -11,16 +11,15 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 </head>
 <body>
-
   <div class="overplay"></div>
   <div id="header">
 
     <div class="row top">
       <div class="container">
         <div class="col-md-4 logo">
-          <img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" />
+          <a href="/mcaa"><img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" /></a>
         </div>
-        <div class="col-md-8  navmain" style="float:right;">
+        <div class="col-md-8 navmain" style="float:right;">
           <ul class="top-menu">
             <div class="search">
 
@@ -35,7 +34,19 @@
               </div>
             </div>
             <li>
-              <a href="">Login</a>
+              <?php
+              if ( is_user_logged_in() ) {
+                          //get current logd in user data
+                          global $current_user;
+
+                          //<span class="td-sp-ico-logout"></span>
+                          echo '<a>logout</a>';
+                      } else {
+
+                          echo '<a hred="#" data-toggle="modal" data-target="#loginModal">Login</a>';
+                      }
+               ?>
+
 
             </li>
             <li>
