@@ -3,10 +3,17 @@
 <div id="slider">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<?php $query = new WP_Query('category_name=slide', array( 'posts_per_page' => 2, 'offset' => 3 ) );?>
 			<?php
-			if ($query-> have_posts()) : ?>
-			<?php while ($query->have_posts()) : $query->the_post(); ?>
+				$postq2 = new WP_Query(
+				 array(
+				  'post_type' =>'post',
+				  'posts_per_page' => 10,
+				  'category_name'=>'slide')
+				);
+				if($postq2->have_posts()):
+				    while ( $postq2->have_posts() ) :
+        $postq2->the_post();?>
+
 			<?php
 			$thumb_id = get_post_thumbnail_id();
 			$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', false);
@@ -42,10 +49,16 @@
 	<div class="col-md-9">
 		<h4>Latest press releases and speeches</h4>
 		<div class="row">
-			<?php $query = new WP_Query('category_name=Pressroom',array( 'posts_per_page' => 5, 'offset' => 3 ));?>
 			<?php
-			if ($query-> have_posts()) : ?>
-			<?php while ($query->have_posts()) : $query->the_post(); ?>
+				$postq2 = new WP_Query(
+				 array(
+					'post_type' =>'post',
+					'posts_per_page' => 3,
+					'category_name'=>'pressroom')
+				);
+				if($postq2->have_posts()):
+						while ( $postq2->have_posts() ) :
+				$postq2->the_post();?>
 			<?php
 			$thumb_id = get_post_thumbnail_id();
 			$thumb_url = wp_get_attachment_image_src($thumb_id,'thumbnail-size', false);
