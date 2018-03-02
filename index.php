@@ -3,7 +3,7 @@
 <div id="slider">
 	<div class="swiper-container">
 		<div class="swiper-wrapper">
-			<?php $query = new WP_Query('category_name=slide', 'posts_per_page=3' );?>
+			<?php $query = new WP_Query('category_name=slide', array( 'posts_per_page' => 2, 'offset' => 3 ) );?>
 			<?php
 			if ($query-> have_posts()) : ?>
 			<?php while ($query->have_posts()) : $query->the_post(); ?>
@@ -42,7 +42,7 @@
 	<div class="col-md-9">
 		<h4>Latest press releases and speeches</h4>
 		<div class="row">
-			<?php $query = new WP_Query( array('category_name=news',  'posts_per_page' => 3 )  );?>
+			<?php $query = new WP_Query('category_name=Pressroom',array( 'posts_per_page' => 5, 'offset' => 3 ));?>
 			<?php
 			if ($query-> have_posts()) : ?>
 			<?php while ($query->have_posts()) : $query->the_post(); ?>

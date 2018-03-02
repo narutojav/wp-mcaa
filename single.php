@@ -9,10 +9,7 @@
 		<h3><?php the_title(); ?></h3>
 	</div>
 </div>
-<?php echo wp_get_attachment_image(get_post_meta( $post_id, 'second_featured_image', true),'thumbnail');
-echo "string";
 
- ?>
 <div id="content">
 	<div class="container">
 		<div class="row">
@@ -26,32 +23,7 @@ echo "string";
 		<div class="row main">
 			<div class="col-md-3">
 				<ul class="nav-side">
-					<li>
-						<a href="">Our Organisation</a>
-						<ul>
-							<li><a href="">Design Organisation Approval</a></li>
-							<li><a href="">Certification of Products & Articles</a></li>
-							<li><a href="" class="active-nav">Safety Series Events</a></li>
-						</ul>
-					</li>
-					<li>
-						<a href="">Areas of Responsibility</a>
-					</li>
-					<li>
-						<a href="">Events</a>
-					</li>
-					<li>
-						<a href="">Careers</a>
-					</li>
-					<li>
-						<a href="">Scholarships</a>
-					</li>
-					<li>
-						<a href="">OInternships</a>
-					</li>
-					<li>
-						<a href="">Newsroom</a>
-					</li>
+					<?php wp_nav_menu( array( 'theme_location' => 'primary','container' => false, 'items_wrap'  => '%3$s', 'walker' => new My_Walker_Nav_Menu() ) ); ?>
 				</ul>
 				<div class="latest">
 					<h4>latest news</h4>

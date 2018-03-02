@@ -24,8 +24,8 @@
             <div class="search">
 
               <div class="lang">
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/mn.png" alt=""></a>
-                <a href="#"><img src="<?php echo get_template_directory_uri(); ?>/images/gb.ico" alt=""></a>
+                <a href="?lang=en"><img src="<?php echo get_template_directory_uri(); ?>/images/mn.png" alt=""></a>
+                <a href="?lang=mn"><img src="<?php echo get_template_directory_uri(); ?>/images/gb.ico" alt=""></a>
               </div>
               <div class="input-group">
 
@@ -63,5 +63,8 @@
         </div>
         <a id="collapse-btn"><i class="fa fa-bars"></i></a>
       </div>
+    </div>
+    <div class="line">
+
     </div>
   </div>
