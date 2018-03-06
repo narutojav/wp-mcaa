@@ -13,41 +13,42 @@
 <body>
   <div class="overplay"></div>
   <div id="header">
-
     <div class="row top">
       <div class="container">
         <div class="col-md-4 logo">
-          <a href="/mcaa"><img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" /></a>
+          <?php
+          $custom_logo_id = get_theme_mod( 'custom_logo' );
+          $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+          if ( has_custom_logo() ) {
+                  echo '<img src="'. esc_url( $logo[0] ) .'">';
+          } else {
+                  echo '<h1>'. get_bloginfo( 'description' ) .'</h1>';
+          } ?>
+          <!-- <a href="/mcaa"><img src="<?php echo get_template_directory_uri(); ?>/images/logo2.png" alt="" /></a> -->
         </div>
         <div class="col-md-8 navmain" style="float:right;">
           <ul class="top-menu">
             <div class="search">
 
               <div class="lang">
-                <a href="?lang=en"><img src="<?php echo get_template_directory_uri(); ?>/images/mn.png" alt=""></a>
-                <a href="?lang=mn"><img src="<?php echo get_template_directory_uri(); ?>/images/gb.ico" alt=""></a>
+                <a href="?lang=mn"><img src="<?php echo get_template_directory_uri(); ?>/images/mn.png" alt=""></a>
+                <a href="?lang=en"><img src="<?php echo get_template_directory_uri(); ?>/images/gb.ico" alt=""></a>
               </div>
               <div class="input-group">
-
                 <input id="email" type="text" class="form-control" name="email" placeholder="Хайх">
                 <span class="input-group-addon"><a href=""><i class="glyphicon glyphicon-search"></i></a></span>
               </div>
             </div>
             <li>
               <?php
-              if ( is_user_logged_in() ) {
-                          //get current logd in user data
-                          global $current_user;
-
-                          //<span class="td-sp-ico-logout"></span>
-                          echo '<a>logout</a>';
-                      } else {
-
-                          echo '<a hred="#" data-toggle="modal" data-target="#loginModal">Login</a>';
-                      }
+                  if ( is_user_logged_in() ) {?>
+                    <a href="<?php echo wp_logout_url( home_url() ); ?>">Logout</a>
+                    <?php
+                      global $current_user;
+                  } else {
+                      echo '<a hred="#" data-toggle="modal" data-target="#loginModal">Login</a>';
+                  }
                ?>
-
-
             </li>
             <li>
               <a href="">Site map</a>

@@ -1,4 +1,3 @@
-
 <?php
 require_once ('inc/myfunction.php');
 add_action('init', 'create_partner');
@@ -6,7 +5,6 @@ add_action('init', 'create_partner');
          $feature_args = array(
             'labels' => array(
              'name' => __( 'partner' ),
-
              'singular_name' => __( 'partner' ),
              'add_new' => __( 'Add New partner' ),
              'add_new_item' => __( 'Add New partner' ),
@@ -80,14 +78,42 @@ function special_nav_class($classes, $item){
 
 add_action("admin_menu", "setup_theme_admin_menus");
 function setup_theme_admin_menus() {
-  add_menu_page('Theme settings', 'Example theme', 'manage_options',
+  add_menu_page('Theme settings', 'MCAA', 'manage_options',
        'tut_theme_settings', 'theme_settings_page');
    add_submenu_page('tut_theme_settings',
        'Front Page Elements', 'Front Page', 'manage_options',
        'front-page-elements', 'theme_front_page_settings');
 }
 function theme_settings_page() {
-
+  function logo_display()
+  {
+      ?>
+          <input type="hidden" name="ologo" value="<?php echo get_option('logo'); ?>" readonly /><input type="file" name="logo" id="imgupload" style="display: none;" />
+    <a id="OpenImgUpload" class="button button-primary">Image Upload</a>
+          <?php echo get_option('logo'); ?>
+     <?php
+  }
+  function handle_logo_upload()
+  {
+      if(isset($_FILES["logo"]) && !empty($_FILES['logo']['name']))
+      {
+          $urls = wp_handle_upload($_FILES["logo"], array('test_form' => FALSE));
+          $temp = $urls["url"];
+         return $temp;
+      }
+   elseif(isset($_FILES["logo"]) && empty($_FILES['logo']['name'])){
+    $urls = $_POST["ologo"];
+    return $urls;
+   }
+     return $option;
+  }
+  function display_theme_panel_fields()
+  {
+      add_settings_section("section", "All Settings", null, "theme-options");
+      add_settings_field("logo", "Logo", "logo_display", "theme-options", "section");
+      register_setting("section", "logo", "handle_logo_upload");
+  }
+  add_action("admin_init", "display_theme_panel_fields");
 }
 function theme_front_page_settings() {
 ?>
@@ -118,7 +144,6 @@ function theme_front_page_settings() {
 </script>
 <div class="wrap">
     <?php screen_icon('themes'); ?> <h2>Front page elements</h2>
-
     <form method="POST" action="">
         <table class="form-table">
             <tr valign="top">
@@ -159,3 +184,15 @@ function theme_front_page_settings() {
 </div>
 <?php
 }
+add_theme_support( 'custom-logo' );
+function themename_custom_logo_setup() {
+    $defaults = array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+    );
+    add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
