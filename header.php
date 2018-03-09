@@ -54,7 +54,7 @@
               <a href="">Site map</a>
             </li>
             <li>
-              <a href="">Contact us</a>
+              <a href="http://localhost/mcaa/en/english-contact/">Contact us</a>
             </li>
 
           </ul>

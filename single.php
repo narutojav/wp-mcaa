@@ -13,12 +13,12 @@
 <div id="content">
 	<div class="container">
 		<div class="row">
-			<ul class="active-cont">
+			<!-- <ul class="active-cont">
 				<li><a href="">Civil Aviation Authority</a></li>
 				<li><a href=""> About CAAS</a></li>
 				<li><a href=""> Events</a></li>
 				<li><a href="">Safety Series Events</a></li>
-			</ul>
+			</ul> -->
 		</div>
 		<div class="row main">
 			<div class="col-md-3">
@@ -33,7 +33,7 @@
 					<article class="main-article">
 						<div class="singleContentBlock">
 							<?php the_content(); ?>
-							<div style="text-align: right; display: block;padding-right: 30px">
+							<div style="text-align: right; display: block">
 								<span id="lastModifiedDate" style="display:inline-block;font-style:italic;     margin-bottom: 20px;"><?php the_date(); ?></span>
 							</div>
 						</div>

@@ -54,7 +54,7 @@
 				 array(
 					'post_type' =>'post',
 					'posts_per_page' => 3,
-					'category_name'=>'pressroom')
+					'category_name'=>'feature')
 				);
 				if($postq2->have_posts()):
 						while ( $postq2->have_posts() ) :

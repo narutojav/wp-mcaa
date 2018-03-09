@@ -1,5 +1,19 @@
 <?php
-require_once ('inc/myfunction.php');
+// require_once('td_deploy_mode.php');
+// // load the config
+// require_once('includes/td_config.php');
+// add_action('td_global_after', array('td_config', 'on_td_global_after_config'), 9); //we run on 9 priority to allow plugins to updage_key our apis while using the default priority of 10
+// // load the wp booster
+// require_once('includes/wp_booster/td_wp_booster_functions.php');
+// require_once('includes/shortcodes/td_misc_shortcodes.php');
+// require_once('includes/widgets/td_page_builder_widgets.php'); // widgets
+/*
+ * mobile theme css generator
+ * in wp-admin the main theme is loaded and the mobile theme functions are not included
+ * required in td_panel_data_source
+ * @todo - look for a more elegant solution(ex. generate the css on request)
+ */
+// require_once('mobile/includes/td_css_generator_mob.php');
 add_action('init', 'create_partner');
        function create_partner() {
          $feature_args = array(

@@ -47,7 +47,13 @@
           <div class="col-md-6">
             <div class="img" style="background-image:url(<?php echo $thumb_url[0];   ?>);">
             </div>
-            <a href=<?php the_permalink() ?>""><h3><?php the_title(); ?></h3>
+            <a href=<?php the_permalink() ?>""><h3>
+              <?php if (strlen("the_title()") > 50) { ?>
+              <?php the_title(); ?>
+          <?php } if (strlen("the_title()") < 50) { ?>
+              <?php echo substr(get_the_title(), 0, 50); ?>...
+          <?php } ?>
+            </h3>
             <!-- <p><?php echo $excerpt; ?></p> -->
             </a>
 

@@ -129,7 +129,7 @@ a:hover {
   padding-left: 0;
   padding-right: 10px;
   border-top: 1px solid #2361b5;
-  width: auto;
+  width: 100%;
   margin-left: 10px;
 }
 
@@ -180,6 +180,14 @@ a:hover {
 #header .lang a:first-child {
   border-right: 1px solid white;
   padding-right: 4px;
+}
+#header .bottom-menu .my-sub-menu li a{
+  font-size: 12px;
+}
+#header .bottom-menu .my-sub-menu li:hover{
+  font-size: 12px;
+  background: #e6e5e5;
+  transition: .5s;
 }
 
 /* .fixed-menu-top{
@@ -519,7 +527,7 @@ a:hover {
   background: #000000a3;
   padding: 5px 20px 5px 20px;
   border-radius: 10px;
-  font-size: 47px;
+  font-size: 25px;
 }
 
 #content {
@@ -597,6 +605,7 @@ a:hover {
 
 #content .main {
   margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 #content .singleContentBlock h1 {
@@ -612,7 +621,8 @@ a:hover {
 
 }
   .about a{
-    color:black;
+    color: #056c9e;
+    text-decoration: underline;
   }
   .about a:hover{
     color:#0c83b3;
@@ -660,7 +670,12 @@ a:hover {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
   }
-
+  td, th {
+      padding: 0;
+      border: 1px solid #e7ecf1;
+      padding: 10px;
+      font-size: 14px;
+  }
 @media (max-width:1024px) {
   #header .bottom-menu {
     padding-left: 0;

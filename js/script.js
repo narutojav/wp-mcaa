@@ -3,11 +3,12 @@ var swiper = new Swiper('#slider .swiper-container', {
 
   loop: true,
   speed: 2000,
-  // autoplay: {
-  //   delay: 6000,
-  //
-  //   disableOnInteraction: false,
-  // },
+  autoplay: 4000,
+  autoplay: {
+    delay: 6000,
+
+    disableOnInteraction: false,
+  },
 
   pagination: {
     el: '.swiper-pagination',
@@ -57,14 +58,11 @@ $(window).scroll(function () {
 
   if ($(window).scrollTop() >= 103) {
     $(".navmain").addClass("fixed-menu");
-
   }
   else {
     $(".navmain").removeClass("fixed-menu");
-
   }
 });
-
 $("#collapse-btn").click(function() {
   $("#header .navmain").addClass("selected");
   $("body").addClass("overflow-hide");
@@ -78,7 +76,6 @@ $(".overplay").click(function() {
   $(".overplay").toggle();
 
 });
-
 // When the user scrolls down 20px from the top of the document, show the button
 if ($('#back-to-top').length) {
     var scrollTrigger = 100, // px
