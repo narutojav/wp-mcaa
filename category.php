@@ -1,13 +1,26 @@
 <?php get_header(); ?>
 <div class="row main">
-  <div id="cover-img" style="background-image:url(<?php if (function_exists('z_taxonomy_image_url')) echo z_taxonomy_image_url(); ?>)">
-    <!-- <div class="gradient"></div> -->
-    <div class="container">
-      <h3><?php
-      $category = get_queried_object();
-      echo $category->cat_name;?></h3>
-    </div>
-  </div>
+  <?php
+    $img_src = z_taxonomy_image_url($category->term_id);
+    if ( $img_src ) {
+
+        echo '<div id="cover-img" style="background-image:url('.$img_src.'">';
+
+          echo '<div class="container">';
+            echo'<h3>';
+            $category = get_queried_object();
+            echo $category->cat_name;
+            echo '</h3>';
+          echo '</div>';
+        echo '</div>';
+    } else {
+        echo '<li>';
+        $category = get_queried_object();
+          echo $category->cat_name;
+          echo '</li>';
+    }
+
+?>
   <div id="content">
     <div class="container">
 

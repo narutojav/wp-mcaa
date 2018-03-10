@@ -1,18 +1,10 @@
 <?php
 // require_once('td_deploy_mode.php');
-// // load the config
 // require_once('includes/td_config.php');
 // add_action('td_global_after', array('td_config', 'on_td_global_after_config'), 9); //we run on 9 priority to allow plugins to updage_key our apis while using the default priority of 10
-// // load the wp booster
 // require_once('includes/wp_booster/td_wp_booster_functions.php');
 // require_once('includes/shortcodes/td_misc_shortcodes.php');
 // require_once('includes/widgets/td_page_builder_widgets.php'); // widgets
-/*
- * mobile theme css generator
- * in wp-admin the main theme is loaded and the mobile theme functions are not included
- * required in td_panel_data_source
- * @todo - look for a more elegant solution(ex. generate the css on request)
- */
 // require_once('mobile/includes/td_css_generator_mob.php');
 add_action('init', 'create_partner');
        function create_partner() {
@@ -85,11 +77,10 @@ class My_Walker_Nav_Menu extends Walker_Nav_Menu {
 }add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 function special_nav_class($classes, $item){
      if( in_array('current-menu-item', $classes) ){
-             $classes[] = 'active ';
+             $classes[] = 'active';
      }
      return $classes;
 }
-
 add_action("admin_menu", "setup_theme_admin_menus");
 function setup_theme_admin_menus() {
   add_menu_page('Theme settings', 'MCAA', 'manage_options',
@@ -137,21 +128,15 @@ function theme_front_page_settings() {
         jQuery("#add-featured-post").click(function() {
             var elementRow = jQuery("#front-page-element-placeholder").clone();
             var newId = "front-page-element-" + elementCounter;
-
             elementRow.attr("id", newId);
             elementRow.show();
-
             var inputField = jQuery("select", elementRow);
             inputField.attr("name", "element-page-id-" + elementCounter);
-
             var labelField = jQuery("label", elementRow);
             labelField.attr("for", "element-page-id-" + elementCounter);
-
             elementCounter++;
             jQuery("input[name=element-max-id]").val(elementCounter);
-
             jQuery("#featured-posts-list").append(elementRow);
-
             return false;
         });
     });
@@ -171,17 +156,12 @@ function theme_front_page_settings() {
                 </td>
             </tr>
         </table>
-
         <h3>Featured posts</h3>
-
         <ul id="featured-posts-list">
         </ul>
-
         <input type="hidden" name="element-max-id" />
-
         <a href="#" id="add-featured-post">Add featured post</a>
     </form>
-
     <li class="front-page-element" id="front-page-element-placeholder"
         style="display:none;">
         <label for="element-page-id">Featured post:</label>
@@ -192,9 +172,8 @@ function theme_front_page_settings() {
                 </option>
             <?php endforeach; ?>
         </select>
-        <a href="#">Remove</a>
+        <a href="#">Remeove</a>
     </li>
-
 </div>
 <?php
 }
